@@ -51,15 +51,6 @@ npm run package   # produces vscode-polyphon-x.y.z.vsix
 
 Install locally in VS Code: **Extensions → ⋯ → Install from VSIX…**
 
-## Submitting changes
+## Contributing
 
-1. Fork the repository and create a branch from `main`.
-2. Make your changes. Run `npm run build` to verify TypeScript passes before committing.
-3. Use [Conventional Commits](https://www.conventionalcommits.org/) for commit messages:
-   `feat(scope): add thing`, `fix(scope): correct thing`, `docs: update readme`, etc.
-4. Open a pull request against `main`. Fill in the PR template.
-5. Update `CHANGELOG.md` under `[Unreleased]` for any user-facing change.
-
-## Releasing
-
-Maintainers bump the version in `package.json`, update `CHANGELOG.md`, tag the commit as bare semver (`0.2.0`, not `v0.2.0`), and publish to the VS Code Marketplace via `vsce publish`.
+This repository is not currently accepting pull requests. If you have ideas, feedback, or want to discuss a change, open a [GitHub Discussion](https://github.com/polyphon-ai/.github/discussions) or an issue instead.

@@ -84,6 +84,11 @@ To run the extension in a development host, open this folder in VS Code and pres
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for architecture details and contribution guidelines.
 
+## Community
+
+- [Join the discussion](https://github.com/polyphon-ai/.github/discussions) — questions, ideas, and feedback
+- [Open an issue](https://github.com/polyphon-ai/vscode-polyphon/issues) — bug reports and feature requests
+
 ## License
 
 MIT — see [LICENSE](LICENSE)
