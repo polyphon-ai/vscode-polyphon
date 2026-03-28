@@ -334,6 +334,7 @@ body {
 .pm--right .pm__bubble--thinking,
 .pm--user .pm__bubble--thinking {
   justify-content: flex-end;
+  border: none;
 }
 
 .pm__thinking-dot {
