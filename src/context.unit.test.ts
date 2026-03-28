@@ -6,7 +6,7 @@ vi.mock("vscode", () => {
       public start: unknown,
       public end: unknown,
     ) {}
-    intersection(_other: unknown) {
+    intersection() {
       return {}; // always intersects — tests control outcomes via getDiagnostics mock
     }
   }
@@ -40,7 +40,9 @@ function makeEditor(options: {
 }) {
   const { file = "/test/file.ts", isEmpty = true, selectedText = "", diagnostics = [] } = options;
 
-  vi.mocked(vscode.languages.getDiagnostics).mockReturnValue(makeDiagnostics(diagnostics) as any);
+  vi.mocked(vscode.languages.getDiagnostics).mockReturnValue(
+    makeDiagnostics(diagnostics) as ReturnType<typeof vscode.languages.getDiagnostics>,
+  );
 
   return {
     document: {
