@@ -20,6 +20,8 @@ interface VoiceMessageState {
   contentEl: HTMLElement;
   headerDot: HTMLElement | null;
   status: "pending" | "streaming" | "done";
+  color: string;
+  side: "left" | "right";
 }
 
 const DEFAULT_CONDUCTOR_COLOR = "#6b7280";
@@ -86,6 +88,8 @@ export class ConversationView {
         contentEl,
         headerDot: headerDot ?? null,
         status: "pending",
+        color: voice.color,
+        side: voice.side,
       });
     }
     this.scrollToBottom();
@@ -100,7 +104,7 @@ export class ConversationView {
         this._container.appendChild(wrapEl);
         const contentEl = wrapEl.querySelector<HTMLElement>(".pm__bubble")!;
         const headerDot = wrapEl.querySelector<HTMLElement>(".pm__status-dot");
-        state = { voiceId, wrapEl, contentEl, headerDot: headerDot ?? null, status: "streaming" };
+        state = { voiceId, wrapEl, contentEl, headerDot: headerDot ?? null, status: "streaming", color: "", side: "left" };
         this._activeStates.set(voiceId, state);
       }
 
@@ -109,6 +113,14 @@ export class ConversationView {
         state.wrapEl.classList.add("pm--streaming");
         state.contentEl.classList.remove("pm__bubble--thinking");
         state.contentEl.innerHTML = "";
+        if (state.color) {
+          if (state.side === "right") {
+            state.contentEl.style.borderRightColor = state.color;
+            state.contentEl.style.borderLeftColor = "transparent";
+          } else {
+            state.contentEl.style.borderLeftColor = state.color;
+          }
+        }
         if (state.headerDot) {
           state.headerDot.classList.add("pm__status-dot--streaming");
           state.headerDot.classList.remove("pm__status-dot--pending");
@@ -213,7 +225,7 @@ export class ConversationView {
     const bubbleCls = status === "pending" ? "pm__bubble pm__bubble--thinking" : "pm__bubble";
     const bubble = body.appendChild(mk("div", bubbleCls));
 
-    if (color) {
+    if (color && status !== "pending") {
       if (side === "right") {
         bubble.style.borderRightColor = color;
         bubble.style.borderLeftColor = "transparent";
