@@ -90,6 +90,7 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
     this._post({
       type: "compositions",
       compositions: comps.map((c) => ({ id: c.id, name: c.name })),
+      activeCompositionId: this._activeComposition?.id ?? null,
     });
   }
 
@@ -101,6 +102,7 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
     this._post({
       type: "sessions",
       sessions: sessions.map((s) => ({ id: s.id, name: s.name, updatedAt: s.updatedAt })),
+      activeSessionId: this._activeSession?.id ?? null,
     });
   }
 
@@ -149,22 +151,22 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
     if (!this._activeSession) return;
 
     let content = text;
+    const ctx = getCodeContext();
+    const parts: string[] = [];
+    if (ctx.file && ctx.file !== this._lastSentFilePath) {
+      parts.push(`> File: ${ctx.file}`);
+      this._lastSentFilePath = ctx.file;
+    }
     if (attachContext) {
-      const ctx = getCodeContext();
-      const parts: string[] = [];
-      if (ctx.file && ctx.file !== this._lastSentFilePath) {
-        parts.push(`> File: ${ctx.file}`);
-        this._lastSentFilePath = ctx.file;
-      }
       if (ctx.selection) {
         parts.push(`\`\`\`\n${ctx.selection}\n\`\`\``);
       }
       if (ctx.diagnostics?.length) {
         parts.push(`> Errors:\n${ctx.diagnostics.map((d) => `> - ${d}`).join("\n")}`);
       }
-      if (parts.length > 0) {
-        content = `${parts.join("\n")}\n\n${text}`;
-      }
+    }
+    if (parts.length > 0) {
+      content = `${parts.join("\n")}\n\n${text}`;
     }
 
     // Show the user-visible text in the webview (not the prepended context)
@@ -202,7 +204,13 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
     switch (msg.type) {
       case "ready":
         this._post({ type: "state", state: this._manager.state });
-        if (this._manager.state === "connected") await this._onConnected();
+        if (this._manager.state === "connected") {
+          await this._onConnected();
+          if (this._activeComposition) {
+            await this._loadSessions(this._activeComposition.id);
+            if (this._activeSession) await this._resumeSession(this._activeSession.id);
+          }
+        }
         break;
       case "reconnect":
         void this._manager.connect();

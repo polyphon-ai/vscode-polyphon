@@ -255,20 +255,31 @@ window.addEventListener("message", (event) => {
 
     case "compositions": {
       const comps = msg.compositions as Array<{ id: string; name: string }>;
+      const activeCompId = msg.activeCompositionId as string | null;
       compositionSelect.innerHTML = "";
       addOption(compositionSelect, "", "— select a composition —");
       comps.forEach((c) => addOption(compositionSelect, c.id, c.name));
+      if (activeCompId) {
+        compositionSelect.value = activeCompId;
+        activeCompositionId = activeCompId;
+        sessionRow.classList.remove("polyphon-session-row--hidden");
+      }
       break;
     }
 
     case "sessions": {
       const sessions = msg.sessions as Array<{ id: string; name: string; updatedAt: number }>;
+      const activeSessId = msg.activeSessionId as string | null;
       sessionSelect.innerHTML = "";
       addOption(sessionSelect, "", "— resume a session —");
       sessions.forEach((s) => {
         const date = new Date(s.updatedAt).toLocaleString(undefined, { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
         addOption(sessionSelect, s.id, `${s.name} · ${date}`);
       });
+      if (activeSessId) {
+        sessionSelect.value = activeSessId;
+        activeSessionId = activeSessId;
+      }
       sessionRow.classList.remove("polyphon-session-row--hidden");
       break;
     }
