@@ -92,6 +92,7 @@ export class PolyphonManager extends EventEmitter implements vscode.Disposable {
 
   disconnect(): void {
     this._clearReconnectTimer();
+    this._suppressDisconnect = true;
     this._client.disconnect();
     this._setState("disconnected");
   }
