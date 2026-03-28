@@ -10,8 +10,16 @@
     "type": "git",
     "url": "https://github.com/polyphon-ai/vscode-polyphon"
   },
-  "keywords": ["ai", "polyphon", "multi-voice", "chat"],
-  "categories": ["AI", "Other"],
+  "keywords": [
+    "ai",
+    "polyphon",
+    "multi-voice",
+    "chat"
+  ],
+  "categories": [
+    "AI",
+    "Other"
+  ],
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -113,6 +121,7 @@
     "builtin-modules": "^5.0.0",
     "esbuild": "^0.27.3",
     "eslint": "^10.0.3",
+    "happy-dom": "^20.8.9",
     "tslib": "^2.4.0",
     "typescript": "^5.0.4",
     "vitest": "^4.0.18"
