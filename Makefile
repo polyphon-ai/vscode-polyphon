@@ -1,4 +1,4 @@
-.PHONY: dev build package test test-unit test-integration lint clean help
+.PHONY: dev build package test typecheck test-unit test-integration lint clean help
 
 dev:
 	npm run dev
@@ -9,7 +9,10 @@ build:
 package: build
 	npx vsce package --no-dependencies
 
-test: lint test-unit test-integration
+test: lint typecheck test-unit test-integration
+
+typecheck:
+	npx tsc --noEmit --skipLibCheck
 
 test-unit:
 	npm run test-unit
@@ -30,7 +33,8 @@ help:
 	@echo "  dev               One-shot build (non-production)"
 	@echo "  build             Type-check + production build"
 	@echo "  package           Build and package as .vsix"
-	@echo "  test              Run lint + unit + integration tests"
+	@echo "  test              Run lint + typecheck + unit + integration tests"
+	@echo "  typecheck         Run TypeScript type-check only"
 	@echo "  test-unit         Run unit tests only"
 	@echo "  test-integration  Run integration tests (requires a running Polyphon instance)"
 	@echo "  lint              Type-check and lint source files"
