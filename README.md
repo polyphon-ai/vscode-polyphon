@@ -1,5 +1,7 @@
 # Polyphon for VS Code
 
+[![Follow on X](https://img.shields.io/badge/Follow-%40PolyphonAI-000?logo=x&logoColor=white)](https://x.com/PolyphonAI)
+
 A VS Code extension that connects to a running [Polyphon](https://polyphon.ai) instance, letting you have multi-voice AI conversations from within your editor — with full awareness of your open file, selection, and errors.
 
 ## Requirements
