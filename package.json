@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "publisher": "polyphon-ai",
   "license": "MIT",
-  "author": "Corey Daley",
+  "author": "Polyphon AI",
   "repository": {
     "type": "git",
     "url": "https://github.com/polyphon-ai/vscode-polyphon"
@@ -27,6 +27,11 @@
     "onStartupFinished"
   ],
   "icon": "media/icon.png",
+  "preview": true,
+  "galleryBanner": {
+    "color": "#1e1b4b",
+    "theme": "dark"
+  },
   "main": "./dist/extension.js",
   "contributes": {
     "viewsContainers": {
@@ -43,7 +48,8 @@
         {
           "id": "polyphon.sidebar",
           "name": "Polyphon",
-          "type": "webview"
+          "type": "webview",
+          "icon": "media/icon.svg"
         }
       ]
     },
