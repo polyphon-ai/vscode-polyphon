@@ -41,7 +41,7 @@ function makeEditor(options: {
   const { file = "/test/file.ts", isEmpty = true, selectedText = "", diagnostics = [] } = options;
 
   vi.mocked(vscode.languages.getDiagnostics).mockReturnValue(
-    makeDiagnostics(diagnostics) as ReturnType<typeof vscode.languages.getDiagnostics>,
+    makeDiagnostics(diagnostics) as unknown as ReturnType<typeof vscode.languages.getDiagnostics>,
   );
 
   return {
