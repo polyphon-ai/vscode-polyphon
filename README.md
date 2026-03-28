@@ -1,6 +1,6 @@
 # Polyphon for VS Code
 
-[![GitHub release](https://img.shields.io/github/v/release/polyphon-ai/vscode-polyphon)](https://github.com/polyphon-ai/vscode-polyphon/releases/latest) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Follow on X](https://img.shields.io/badge/Follow-%40PolyphonAI-000?logo=x&logoColor=white)](https://x.com/intent/follow?screen_name=PolyphonAI)
+[![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/polyphon-ai.vscode-polyphon?label=VS%20Code%20Marketplace&logo=visualstudiocode&logoColor=white&color=0078d7)](https://marketplace.visualstudio.com/items?itemName=polyphon-ai.vscode-polyphon) [![GitHub release](https://img.shields.io/github/v/release/polyphon-ai/vscode-polyphon)](https://github.com/polyphon-ai/vscode-polyphon/releases/latest) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Follow on X](https://img.shields.io/badge/Follow-%40PolyphonAI-000?logo=x&logoColor=white)](https://x.com/intent/follow?screen_name=PolyphonAI)
 
 A VS Code extension that connects to a running [Polyphon](https://polyphon.ai) instance, letting you have multi-voice AI conversations from within your editor — with full awareness of your open file, selection, and errors.
 
@@ -13,9 +13,9 @@ A VS Code extension that connects to a running [Polyphon](https://polyphon.ai) i
 
 ## Installation
 
-### VS Code Marketplace *(coming soon)*
+### VS Code Marketplace
 
-Search for **Polyphon** in the Extensions panel or visit the Marketplace page.
+Search for **Polyphon** in the Extensions panel (`Cmd/Ctrl+Shift+X`), or install directly from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=polyphon-ai.vscode-polyphon).
 
 ### Manual installation (VSIX)
 
