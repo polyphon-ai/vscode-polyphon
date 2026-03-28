@@ -40,5 +40,7 @@ jobs:
           files: vscode-polyphon-${{ github.ref_name }}.vsix
 
       - name: Publish to VS Code Marketplace
-        if: ${{ secrets.VSCE_PAT != '' }}
-        run: npx vsce publish --no-dependencies --packagePath vscode-polyphon-${{ github.ref_name }}.vsix --pat ${{ secrets.VSCE_PAT }}
+        if: ${{ env.VSCE_PAT != '' }}
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+        run: npx vsce publish --no-dependencies --packagePath vscode-polyphon-${{ github.ref_name }}.vsix --pat ${{ env.VSCE_PAT }}
