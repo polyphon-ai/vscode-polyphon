@@ -16,7 +16,9 @@ npm run package        # build + vsce package → .vsix
 npm run lint           # eslint src/
 ```
 
-To install and test locally in VS Code:
+**Development mode (recommended):** Open this folder (not the parent `polyphon-ai/` directory) in VS Code and press **F5**. This runs `npm run dev`, then launches an Extension Development Host window with the extension loaded from source. After making changes, run `npm run dev` in the terminal and press **Cmd+R** in the host window to reload — no reinstall needed.
+
+**Install from VSIX:**
 1. `npm run build`
 2. `npm run package` to produce a `.vsix`
 3. In VS Code: Extensions → ⋯ → Install from VSIX
