@@ -4,6 +4,8 @@
 
 A VS Code extension that connects to a running [Polyphon](https://polyphon.ai) instance, letting you have multi-voice AI conversations from within your editor — with full awareness of your open file, selection, and errors.
 
+![Polyphon sidebar showing a multi-voice conversation](media/screenshot.gif)
+
 ## Requirements
 
 - [Polyphon](https://polyphon.ai) must be installed and running locally (desktop app)
