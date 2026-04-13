@@ -118,7 +118,7 @@
     "@polyphon-ai/js": "^0.13.1"
   },
   "devDependencies": {
-    "@types/node": "^25.4.0",
+    "@types/node": "^25.6.0",
     "@types/vscode": "^1.85.0",
     "@types/vscode-webview": "^1.57.5",
     "@typescript-eslint/eslint-plugin": "^8.57.0",
