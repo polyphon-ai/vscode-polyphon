@@ -127,7 +127,7 @@
     "builtin-modules": "^5.0.0",
     "esbuild": "^0.27.3",
     "eslint": "^10.0.3",
-    "happy-dom": "^20.8.9",
+    "happy-dom": "^20.9.0",
     "tslib": "^2.4.0",
     "typescript": "^5.0.4",
     "vitest": "^4.0.18"
